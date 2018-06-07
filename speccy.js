@@ -10,6 +10,8 @@ const lint = require('./lint.js');
 const resolve = require('./resolve.js');
 const serve = require('./serve.js');
 
+const init = (process.argv.indexOf("--init") > -1);
+
 function collect(val, item) {
   item.push(val);
   return item;
@@ -48,6 +50,19 @@ program
     // TODO .option('-w, --watch', 'reloading browser on spec file changes')
     .action(serve.command);
 
-program.parse(process.argv);
 
-if (!program.args.length) program.help();
+if (init) {
+  const configInit = require("./lib/config/config-initializer");
+
+  configInit.initializeConfig().then(() => {
+    process.exitCode = 0;
+  }).catch(err => {
+    process.exitCode = 1;
+    console.error(err.message);
+    console.error(err.stack);
+  });
+} else {
+  program.parse(process.argv);
+
+  if (!program.args.length) program.help();
+}

@@ -47,13 +47,18 @@
         "commander": "^2.14.1",
         "ejs": "^2.5.2",
         "express": "^4.14.0",
-        "js-yaml": "^3.6.1",
+        "fs": "0.0.1-security",
+        "inquirer": "^6.0.0",
+        "js-yaml": "^3.12.0",
         "json-schema-to-openapi-schema": "^0.2.0",
+        "json-stable-stringify-without-jsonify": "^1.0.1",
         "node-fetch": "^1.7.3",
         "node-readfiles": "^0.2.0",
+        "path": "^0.12.7",
         "redoc": "next",
         "reftools": "0.0.20",
-        "should": "^13.2.0"
+        "should": "^13.2.0",
+        "util": "^0.10.4"
     },
     "devDependencies": {
         "babel-core": "^6.24.1",
